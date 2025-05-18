@@ -39,8 +39,9 @@
                     <input type="text" class="form-control inline" name="email">
                 </div>
                 <div class="form-group">
+                    {% load tz %}
                     <label for="birthday" class="control-label">Date of Birth</label>
-                    <input type="date" class="form-control inline" name="birthday">
+                    <input type="date" class="form-control inline" name="birthday" max="{% now 'Y-m-d' %}">
                 </div>
                 <div class="form-group">
                     <label for="password" class="control-label">Password</label>
