@@ -40,15 +40,10 @@ def user_login(request):
             messages.error(request, v)
         return redirect('/users')
     user = User.objects.filter(email=request.POST['email']).first()
-    if not user:
-        return redirect('/users')
-    else:
-        if bcrypt.checkpw(request.POST['password'].encode(), user.password.encode()):
-            request.session['user_id'] = user.id
-            request.session['first_name'] = user.first_name
-            request.session['last_name'] = user.last_name
-            return redirect('/wishes')
-        return redirect('/users')
+    request.session['user_id'] = user.id
+    request.session['first_name'] = user.first_name
+    request.session['last_name'] = user.last_name
+    return redirect('/wishes')
 
 def user_logout(request):
     request.session.flush()
