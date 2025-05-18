@@ -1,0 +1,89 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.center {
+    text-align: center;
+}
+.col-sm-6 {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+}
+.col-sm-4 {
+    width: 32.5%;
+}
+.footer {
+    text-align: center;
+    font-size: 90%;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.ml-20 {
+    margin-left: 20px;
+}
+.ml-40 {
+    margin-left: 40px;
+}
+.mr-20 {
+    margin-right: 20px;
+}
+.mr-10 {
+    margin-right: 10px;
+}
+.messages {
+    color: red;
+    font-weight: bold;
+}
+.inline {
+    display: inline-block;
+}
+.right {
+    text-align: right;
+}
+.bold {
+    font-weight: bold;
+}
+.red {
+    color: red;
+}
+.font24 {
+    font-size: 24px;
+}
+.border-right {
+    border-right: 1px solid #333;
+}
+li {
+    list-style: none;
+    margin-left: 20px;
+}
+.form-control {
+    width: 69.5%;
+}
+.control-label {
+    width: 30%;
+}
+.top {
+    vertical-align: top;
+}
+.w100 {
+    width: 100%;
+}
+.btn-primary, .btn-success, .btn-warning, .btn-secondary {
+    box-shadow: 2px 2px 2px #444;
+}
+.btn {
+    color: #FFF;
+    font-weight: bold;
+}
+.pad-mar-0 {
+    padding: 0px;
+    margin: 10px 0 0 0;
+}

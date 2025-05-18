@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login and Registration - Success</title>
+</head>
+<body>
+    <div class="container">
+        {% block header %}
+            {% include "header.html" %}
+        {% endblock %}
+        <div class="mb-20"></div>
+        <div class="col-sm-12">
+        </div>
+        <div class="col-sm-12">
+            <h3>User Account Profile:</h3>
+            <div class="col-sm-2 inline">User ID: </div><div class="col-sm-10 inline">{{user.id}}</div>
+            <div class="col-sm-2 inline">Name: </div><div class="col-sm-10 inline">{{user.first_name}} {{user.last_name}}</div>
+            <div class="col-sm-2 inline">Email: </div><div class="col-sm-10 inline">{{user.email}}</div>
+            <div class="col-sm-2 inline">Date of Birth: </div><div class="col-sm-10 inline">{{user.birthday|date:'F d, Y'}}</div>
+            {% if request.session.user_id == user.id %}
+            <a href="/users/edit"><button class="btn btn-primary mt-20">Edit your profile</button></a>
+            {% endif %}
+        </div>
+        {% block footer %}
+            {% include "footer.html" %}
+        {% endblock %}
+    </div>
+</body>
+</html>
