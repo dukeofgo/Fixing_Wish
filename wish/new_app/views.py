@@ -48,7 +48,7 @@ def user_login(request):
             request.session['user_id'] = logged_user.id
             request.session['first_name'] = logged_user.first_name
             request.session['last_name'] = logged_user.last_name
-            return redirect(f'/wishes')
+            return redirect('/wishes')
         return redirect('/users')
 
 def user_logout(request):
