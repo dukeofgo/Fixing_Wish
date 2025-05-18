@@ -39,15 +39,14 @@ def user_login(request):
         for v in errors.values():
             messages.error(request, v)
         return redirect('/users')
-    user = User.objects.filter(email=request.POST['email'])
+    user = User.objects.filter(email=request.POST['email']).first()
     if not user:
         return redirect('/users')
     else:
-        logged_user = user[0]
-        if bcrypt.checkpw(request.POST['password'].encode(), logged_user.password.encode()):
-            request.session['user_id'] = logged_user.id
-            request.session['first_name'] = logged_user.first_name
-            request.session['last_name'] = logged_user.last_name
+        if bcrypt.checkpw(request.POST['password'].encode(), user.password.encode()):
+            request.session['user_id'] = user.id
+            request.session['first_name'] = user.first_name
+            request.session['last_name'] = user.last_name
             return redirect('/wishes')
         return redirect('/users')
 
@@ -127,13 +126,12 @@ def add_wish(request):
         return redirect('/')
     if request.method != 'POST':
         return redirect('/wishes')
-    user = User.objects.filter(id=request.session['user_id'])
+    user = User.objects.filter(id=request.session['user_id']).first()
     if not user:
         return redirect('/')
-    logged_user = user[0]
     i = request.POST['item']
     d = request.POST['description']
-    Wish.objects.create(item=i, description=d, is_granted=0, wisher_id=logged_user.id)
+    Wish.objects.create(item=i, description=d, is_granted=0, wisher_id=user.id)
     return redirect('/wishes')
 
 def wish(request):

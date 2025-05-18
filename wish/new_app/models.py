@@ -23,14 +23,13 @@ class UserManager(models.Manager):
         return errors
     def login_validator(self, form_data):
         errors = {}
-        user = self.filter(email=form_data['email'])
+        user = self.filter(email=form_data['email']).first()
         if not user:
             errors['email'] = "You don't have an account with us!"
         if not EMAIL_REGEX.match(form_data['email']):
             errors['email'] = 'Email is invalid!'
         if user:
-            logged_user = user[0]
-            if not bcrypt.checkpw(form_data['password'].encode(), logged_user.password.encode()):
+            if not bcrypt.checkpw(form_data['password'].encode(), user.password.encode()):
                 errors['password'] = 'You entered wrong password, please try again!'
         return errors
     def update_validator(self, form_data):
