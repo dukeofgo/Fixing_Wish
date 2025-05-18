@@ -97,14 +97,14 @@
                             <td>
                                 {% if wish not in user.wishes_liked.all %}
                                     {% if user.id != wish.wisher_id %}
-                                    <form action="/wishes/" method="post" class="inline">
+                                    <form action="/wishes/like" method="post" class="inline">
                                         {% csrf_token %}
                                         <input type="hidden" name="wish_id" value="{{wish.id}}">
                                         <button class="btn-sm btn-primary mr-10" type="submit">Like</button>
                                     </form>
                                     {% endif %}
                                 {% else %}
-                                <form action="/wishes/" method="post" class="inline">
+                                <form action="/wishes/unlike" method="post" class="inline">
                                     {% csrf_token %}
                                     <input type="hidden" name="wish_id" value="{{wish.id}}">
                                     <button class="btn-sm btn-primary mr-10" type="submit">Unlike</button>
