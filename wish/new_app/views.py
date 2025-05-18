@@ -99,7 +99,7 @@ def dashboard(request, id):
         return redirect('/')
     user = User.objects.get(id=id) 
     context = {
-        'user': user[0],
+        'user': user,
     }
     return render(request,'dashboard.html', context)
 
