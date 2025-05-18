@@ -76,7 +76,7 @@ def user_update(request):
     if errors:
         for v in errors.values():
             messages.error(request, v)
-        return redirect(f'/users/{user[0].id}/edit')
+        return redirect(f'/users/{user[0].id}/dashboard')
     if request.method != 'POST':
         return redirect(f'/users/{user[0].id}/dashboard')
     if request.session['user_id'] == user[0].id:
