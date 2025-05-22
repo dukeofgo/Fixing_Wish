@@ -86,7 +86,7 @@ def user_update(request):
             hash_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
             user[0].password = hash_pw
             user[0].save()
-            return redirect(f'/users/{id}/dashboard')
+            return redirect(f'/users/{user[0].id}/dashboard')
 
 def dashboard(request, id):
     if 'user_id' not in request.session:
