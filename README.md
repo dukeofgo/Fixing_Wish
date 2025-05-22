@@ -20,3 +20,4 @@ Problems were identified, and appropriate solutions have been applied to restore
 | Avoid hardcoding to ensure reusability    | Hard-coding User model                                        | Replace with self to accomodate different manager instances
 | Implement .first() for clarity            | Not utilizing .first() introduces many redundant code         | Implement .first() 
 | Remove redundant code & simplify logic    | Duplicated password validation and redirect code              | Remove the duplication and redundancy
+| Incorrect redirect url                    | Incorrect redirect url                                        | Replace with correct redirect url
